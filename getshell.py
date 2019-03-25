@@ -131,7 +131,7 @@ class GetShell(object):
 
 
 if __name__ == '__main__':
-    sys.argv[0]=ip
+    ip = sys.argv[0]
     w = GetShell(ip)
     check1 = w.checkauth()
     if not check1[0]:
