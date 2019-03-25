@@ -5,4 +5,4 @@ python3
 
 Usage
 
-python3 getshell 127.0.0.1
+python3 getshell.py 127.0.0.1
